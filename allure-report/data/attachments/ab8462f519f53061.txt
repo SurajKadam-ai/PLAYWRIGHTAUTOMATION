@@ -1,0 +1,10 @@
+Let's Shop
+[
+  'ADIDAS ORIGINAL',
+  'ZARA COAT 3',
+  'iphone 13 pro',
+  'Automation 8',
+  'Automation 7',
+  'Automation 6'
+]
+Item Successfully added: locator('.card-body').first()
