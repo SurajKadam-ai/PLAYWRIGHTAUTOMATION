@@ -7,7 +7,8 @@
     "regression": "npx playwright test",
     "webTests": "npx playwright test --grep @Web",
     "APITests": "npx playwright test --grep @API",
-    "SafariNewConfig": "npx playwright test --config playwright.config1.js --project=webkit"
+    "SafariNewConfig": "npx playwright test --config playwright.config1.js --project=webkit",
+    "TypeScriptTest" : "npx playwright test ./tests/ClientAppPO1TSFixture.spec.ts"
   },
   "keywords": [],
   "author": "",
