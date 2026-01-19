@@ -8,7 +8,7 @@
     "webTests": "npx playwright test --grep @Web",
     "APITests": "npx playwright test --grep @API",
     "SafariNewConfig": "npx playwright test --config playwright.config1.js --project=webkit",
-    "TypeScriptTest" : "npx playwright test ./tests/ClientAppPO1TSFixture.spec.ts"
+    "TypeScriptTest": "npx playwright test ./tests/ClientAppPO1TSFixture.spec.ts"
   },
   "keywords": [],
   "author": "",
@@ -20,6 +20,7 @@
     "typescript": "^5.9.3"
   },
   "dependencies": {
+    "@cucumber/cucumber": "^12.5.0",
     "exceljs": "^4.4.0"
   }
 }
