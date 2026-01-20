@@ -5,19 +5,14 @@ const { chromium } = require('playwright');
 
 Given('a login to Ecommerce application with {string} and {string}', { timeout: 100 * 1000 }, async function (username, password) {
     // Write code here that turns the phrase above into concrete actions
-    const browser = await chromium.launch({
-        headless: false
-    });
-    const context = await browser.newContext();
-    this.page = await context.newPage();
-    this.poManager = new POManager(this.page);
+
     // js file- Login js, DashboardPage
     const loginPage = this.poManager.getLoginPage();
     await loginPage.goTO();
     await loginPage.validLogin(username, password);
 });
 
-When('Add {string} to Cart', async function (productName) {
+When('Add {string} to Cart', { timeout: 100 * 1000 }, async function (productName) {
     // Write code here that turns the phrase above into concrete actions
     this.dashboardPage = this.poManager.getDashboardPage();
     await this.dashboardPage.searchProductAddCart(productName);
@@ -25,11 +20,11 @@ When('Add {string} to Cart', async function (productName) {
 
 });
 
-Then('Verify {string} is displayed in the Cart', { timeout: 100 * 1000 }, async function (productName) {
+Then('Verify {string} is displayed in the Cart', async function (productName) {
     // Write code here that turns the phrase above into concrete actions
-    this.cartPage = this.poManager.getCartPage();
-    await this.cartPage.VerifyProductIsDisplayed(productName);
-    await this.cartPage.Checkout();
+    const cartPage = this.poManager.getCartPage();
+    await cartPage.VerifyProductIsDisplayed(productName);
+    await cartPage.Checkout();
 });
 
 When('Enter valid details and place the Order', async function () {
@@ -38,7 +33,7 @@ When('Enter valid details and place the Order', async function () {
     await ordersReviewPage.searchCountryAndSelect("ind", "India");
     this.orderId = await ordersReviewPage.SubmitAndGetOrderId();
     // await page.pause();
-    console.log(orderId);
+    console.log(this.orderId);
 });
 
 Then('Verify order is present in the OrderHistory', async function () {
