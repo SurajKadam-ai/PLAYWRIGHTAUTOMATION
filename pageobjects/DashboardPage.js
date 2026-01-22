@@ -18,7 +18,8 @@ class DashboardPage {
             if (await this.products.nth(i).locator("b").textContent() === productName) {
                 // add to cart
                 await this.products.nth(i).locator("text = Add To Cart").click();
-                console.log("Item Successfully added: " + this.products.nth(i).locator("b").textContent());
+                const message = this.products.nth(i).locator("b").textContent();
+                console.log("Item Successfully added: " + message);
                 break;
             }
         }
