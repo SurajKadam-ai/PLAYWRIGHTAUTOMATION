@@ -4,11 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "ci:setup": "npm ci && npx playwright install --with-deps",
     "regression": "npx playwright test",
     "webTests": "npx playwright test --grep @Web",
     "APITests": "npx playwright test --grep @API",
     "SafariNewConfig": "npx playwright test --config playwright.config1.js --project=webkit",
-    "TypeScriptTest": "npx playwright test ./tests/ClientAppPO1TSFixture.spec.ts"
+    "TypeScriptTest": "npx playwright test ./tests/ClientAppPO1TSFixture.spec.ts",
+     "ci:TypeScriptTest": "npm run ci:setup && npm run TypeScriptTest"
   },
   "keywords": [],
   "author": "",
